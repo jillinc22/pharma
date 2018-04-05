@@ -7,6 +7,6 @@ var func = require("./app/index.js")
 func(app);
 
 var port = process.env.PORT || 8000
-server.listen(port, function() {
+app.listen(port, function() {
     console.log("App is running on port " + port);
 });
