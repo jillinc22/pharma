@@ -3,111 +3,172 @@ extends ../../home/views/navbar.pug
 block content
     <div class="content-wrapper">
         <div class="container-fluid">
-        <!-- Example DataTables Card-->
-        <div class="card mb-3">
-            <div class="card-header">
-            <i class="fa fa-list-ul"></i> Schedules
-            </div>
-            <div class="card-body">
-            <div class="table-responsive">
-                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                    <thead>
-                        <tr>
-                        <th>Subject Code</th>
-                        <th>Subject Name</th>
-                        <th>Time</th>
-                        <th>Days</th>
-                        <th>Created by</th>
-                        <th>Actions</th>
-                        </tr>
-                    </thead>
-                    <tfoot>
-                        <tr>
-                        <th>Subject Code</th>
-                        <th>Subject Name</th>
-                        <th>Time</th>
-                        <th>Days</th>
-                        <th>Created by</th>
-                        <th>Actions</th>
-                        </tr>
-                    </tfoot>
-                    <tbody>
-                    each sched in tbl_sched
-                        <tr>
-                        <td>
-                            value=sched.char_courseCode
-                        </td>
-                        <td>
-                            value=sched.varchar_courseName
-                        </td>
-                        <td>
-                            value=sched.varchar_schedTime
-                        </td>
-                        <td>
-                            value=sched.varchar_schedDay
-                        </td>
-                         <td>
-                            value=sched.varchar_collegeName
-                        </td>
-                        <td>
-                           a(href=`/student/schedule/${sched.int_schedID}/saved` name="butsaved" ): span.fa.fa-check Save
-                        </td>
-                        </tr>
-                </tbody>
-                </table>
-            </div>
-            </div>
-
-
-        </div>
-            <div class="row">
-                <div class="col-12">
-                        <div class="card mb-6">
-                        <div class="card-header">
-                            <i class="fa fa-bullhorn"></i><b> Saved Schedules</b>
-                            </div>
-                        <div class="card-body">
-                                    <div class="card mb-6">
-                                        <div class="card-header">
-                                        <table class="table">
-                                                <thead>
-                                                    <tr class="filters">
-                                                        <th>Subject Code</th>
-                                                        <th>Time</th>
-                                                        <th>Days</th>
-                                                        <th>Room</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                each saved in tbl_savedsched
-                                                    <tr>
-                                                        <td>
-                                                            value=saved.char_courseCode
-                                                        </td>
-                                                        <td>
-                                                            value=saved.varchar_schedTime
-                                                        </td>
-                                                        <td>
-                                                            value=saved.varchar_schedDay
-                                                        </td>
-                                                        <td>
-                                                            value=saved.varchar_schedRoom
-                                                        </td>
-                                                    </tr>
-                                                </tbody>
-                                                </table>
-                                        </div>
-                                    </div>
-                        </div>
-                </div>
-        </div>
-        
-        <!-- /.container-fluid-->
-        <!-- /.content-wrapper-->
+        .main-panel
+        nav.navbar.navbar-default.navbar-fixed
+          .container-fluid
+            .navbar-header
+        .content
+          .container-fluid
+            .row
+              .col-md-12
+                .card
+                  .header
+                    h4.title List of Stocks
+                    p.category
+                  .content.table-responsive.table-full-width
+                    table.table.table-hover.table-striped
+                      thead
+                        th Medicines
+                        th Code Name
+                        th Expiry Date
+                        th Quantity
+                        th Unit
+                        th Sold
+                        th Total
+                        th Status
+                      tbody
+                        tr
+                          td OXALIPLATIN - OXANISH-50
+                          td OXIF17A11-A
+                          td 05/2019
+                          td 275
+                          td
+                            | VIAL
+                          td 100
+                          td 75
+                          td
+                            input(type='checkbox', checked='', data-toggle='toggle', data-on='Available', data-off='Not Available', data-onstyle='success', data-offstyle='danger')
+                        tr
+                          td CEFIXIME (TRIHYDRATE) - TRIFIX 200
+                          td ICFOC7001
+                          td 12/2018
+                          td 85,320
+                          td TABS
+                          td 85,320
+                          td 85,320
+                          td
+                            input(type='checkbox', data-toggle='toggle', data-on='Available', data-off='Not Available', data-onstyle='success', data-offstyle='danger')
+                        tr
+                          td TAMOXIFEN (CITRATE) 20MG - TAMOXIGEN 20
+                          td GST17018
+                          td 03/2020
+                          td 3,750
+                          td TABS
+                          td 3,750
+                          td 3,750
+                          td
+                            input(type='checkbox', data-toggle='toggle', data-on='Available', data-off='Not Available', data-onstyle='success', data-offstyle='danger')
+                        tr
+                          td HYOSCINE BUTYLYBROMIDE - HYOGEN
+                          td I16056
+                          td 05/2018
+                          td 1,720
+                          td PCS
+                          td 720
+                          td 1,000
+                          td
+                            input(type='checkbox', checked='', data-toggle='toggle', data-on='Available', data-off='Not Available', data-onstyle='success', data-offstyle='danger')
+                  .content.table-responsive.table-full-width
+                    table.table.table-hover.table-striped
+                      thead
+                        th Diagnostic Brand
+                        th Item Description
+                        th Pack Size
+                        th Expiry Date
+                        th Quantity
+                        th Sold
+                        th Total
+                        th Status
+                      tbody
+                        tr
+                          td FineCare
+                          td Finecare Troponin I
+                          td 25T/box
+                          td 05/2019
+                          td 18
+                          td 13
+                          td 5
+                          td
+                            input(type='checkbox', checked='', data-toggle='toggle', data-on='Available', data-off='Not Available', data-onstyle='success', data-offstyle='danger')
+                        tr
+                          td Nulyte
+                          td Nulyte Electrolyte Analyzer Reagent Pack
+                          td 480mL
+                          td 03/2019
+                          td 24
+                          td 24
+                          td 24
+                          td
+                            input(type='checkbox', data-toggle='toggle', data-on='Available', data-off='Not Available', data-onstyle='success', data-offstyle='danger')
+                        tr
+                          td Snibe
+                          td FT3
+                          td 100T
+                          td 03/2018
+                          td 3
+                          td 3
+                          td 3
+                          td
+                            input(type='checkbox', data-toggle='toggle', data-on='Available', data-off='Not Available', data-onstyle='success', data-offstyle='danger')
+                        tr
+                          td Rayto
+                          td Concentrated Cleanser
+                          td 100ml
+                          td 06/2018
+                          td 26
+                          td 26
+                          td 26
+                          td
+                            input(type='checkbox', data-toggle='toggle', data-on='Available', data-off='Not Available', data-onstyle='success', data-offstyle='danger')
+                        tr
+                          td Agappe
+                          td Glucose
+                          td 5X100ml
+                          td 09/2019
+                          td 112
+                          td 4
+                          td 108
+                          td
+                            input(type='checkbox', checked='', data-toggle='toggle', data-on='Available', data-off='Not Available', data-onstyle='success', data-offstyle='danger')
+                  .content.table-responsive.table-full-width
+                    table.table.table-hover.table-striped
+                      thead
+                        th Machines
+                        th Serial Number
+                        th Quantity
+                        th Status
+                      tbody
+                        tr
+                          td MERILYZER CLOT DETECTION
+                          td 051206
+                          td 1
+                          td
+                            input(type='checkbox', checked='', data-toggle='toggle', data-on='Available', data-off='Not Available', data-onstyle='success', data-offstyle='danger')
+                        tr
+                          td Hematology Analyzer
+                          td 891907002IEQXN
+                          td 0
+                          td
+                            input(type='checkbox', data-toggle='toggle', data-on='Available', data-off='Not Available', data-onstyle='success', data-offstyle='danger')
+                        tr
+                          td Microlab Instrument ARX 199i
+                          td 051614
+                          td 0
+                          td
+                            input(type='checkbox', data-toggle='toggle', data-on='Available', data-off='Not Available', data-onstyle='success', data-offstyle='danger')
+                        tr
+                          td MERILYZER CLINIQUANT
+                          td 111660
+                          td 1
+                          td
+                            input(type='checkbox', checked='', data-toggle='toggle', data-on='Available', data-off='Not Available', data-onstyle='success', data-offstyle='danger')
+        #chartPreferences.ct-chart.ct-perfect-fourth(style='display: none;')
+        #chartHours.ct-chart(style='display: none;')
+        #chartActivity.ct-chart(style='display: none;')
         <footer class="sticky-footer">
         <div class="container">
             <div class="text-center">
-            <small>Copyright © Irregular Please 2018</small>
+            <small>Copyright © Pharmastar Int'l Trading Corporation</small>
             </div>
         </div>
         </footer>
@@ -115,6 +176,13 @@ block content
         <a class="scroll-to-top rounded" href="#page-top">
         <i class="fa fa-angle-up"></i>
         </a>
+         // Animation library for notifications
+        link(href='../css/animate.min.css', rel='stylesheet')
+        // CSS for Demo Purpose, don't include it in your project
+        link(href='../css/demo.css', rel='stylesheet')
+        // Fonts and icons
+        link(href='../themify-icons/themify-icons.css', rel='stylesheet')
+        link(href='https://fonts.googleapis.com/css?family=Passion+One', rel='stylesheet')
         <!-- Bootstrap core JavaScript-->
         <script src="/adminui/vendor/jquery/jquery.min.js"></script>
         <script src="/adminui/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>

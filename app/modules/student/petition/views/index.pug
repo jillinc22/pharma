@@ -1,77 +1,104 @@
 extends ../../home/views/navbar.pug
 
 block content
+
     <div class="content-wrapper">
         <div class="container-fluid">
-        <!-- Example DataTables Card-->
-        <div class="card mb-3">
-            <div class="card-header">
-            <i class="fa fa-list-ul"></i> Petitions
-            <button type="button" class="btn btn-outline-primary waves-effect float-right" data-toggle="modal" data-target="#myModal"><i class="fa fa-plus-square "></i> Add</button>
-            </div>
-            <div class="card-body">
-            <div class="table-responsive">
-                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                    <thead>
-                        <tr>
-                        <th>Subject Code</th>
-                        <th>Subject Name</th>
-                        <th>Time</th>
-                        <th>Days</th>
-                        <th>Members</th>
-                        <th>Created by</th>
-                        <th>Actions</th>
-                        </tr>
-                    </thead>
-                    <tfoot>
-                        <tr>
-                        <th>Subject Code</th>
-                        <th>Subject Name</th>
-                        <th>Time</th>
-                        <th>Days</th>
-                        <th>Members</th>
-                        <th>Created by</th>
-                        <th>Actions</th>
-                        </tr>
-                    </tfoot>
-                    <tbody>
-                    each petition in tbl_petition
-                        <tr>
-                        <td>
-                            value=petition.char_subjCode
-                        </td>
-                        <td>
-                            value=petition.varchar_courseName
-                        </td>
-                        <td>
-                            value=petition.varchar_petitTime
-                        </td>
-                        <td>
-                            value=petition.varchar_petitDays
-                        </td>
-                        <td>
-                            value=petition.int_petitMemb
-                        </td>
-                        <td>
-                            value=petition.int_userID
-                        </td>
-                        <td>
-                           a(href=`/student/petition/${petition.int_petitID}/join`): span.fa.fa-check Join Petition
-                        </td>
-                        </tr>
-                </tbody>
-                </table>
-            </div>
-            </div>
-        </div>
-        </div>
+        .main-panel
+          nav.navbar.navbar-default.navbar-fixed
+           .container-fluid
+          .content
+            .container-fluid
+             .row
+               .col-md-12
+                 .card
+                  .header
+                   h4.title
+                    | PharmaStar 
+                    script.
+                      document.write(new Date().getFullYear())
+                   p.category Products
+                 .content.table-responsive.table-full-width
+                   table.table.table-hover.table-striped
+                    thead
+                      th Product Name
+                      th Code Name
+                      th Quantity
+                      th Expiry Date
+                      th Action
+                    tbody
+                      tr
+                        td AMPICILLIN(AS SODIUM)-AMPICELO 500
+                        td ICI7167002
+                        td 80,231
+                        td 01/2019
+                        td
+                          button.btn.btn-simple.btn-info.btn-icon.table-action.view(rel='tooltip', type='button', title='View', data-toggle='modal', data-target='#myModal')
+                           i.ti-eye
+                          #myModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='exampleModalLabel', aria-hidden='true')
+                            .modal-dialog(role='document')
+                             .modal-content
+                               .modal-header
+                                 h5#exampleModalLabel.modal-title
+                                  | Product Details
+                                 button.close(type='button', data-dismiss='modal', aria-label='Close')
+                                    span.ti-close(aria-hidden='true')
+                               .modal-body
+                                  p AMPICILLIN(AS SODIUM)-AMPICELO 500
+                                  p Code Name:ICI7167002 
+                               .modal-footer
+                                 button.btn.btn-primary(type='button', data-dismiss='modal') Ok
+                      tr
+                        td CAPECITABINE - CETAGEN 500 MG
+                        td GST17043
+                        td 1,250
+                        td 07/2019
+                        td
+                          button.btn.btn-simple.btn-info.btn-icon.table-action.view(rel='tooltip', title='View', data-toggle='modal', data-target='#myModal1')
+                            i.ti-eye
+                          #myModal1.modal.fade(tabindex='-1', role='dialog', aria-labelledby='exampleModalLabel', aria-hidden='true')
+                           .modal-dialog(role='document')
+                             .modal-content
+                               .modal-header
+                                 h5#exampleModalLabel.modal-title
+                                  | Product Details
+                                 button.close(type='button', data-dismiss='modal', aria-label='Close')
+                                    span.ti-close(aria-hidden='true')
+                               .modal-body
+                                 p CAPECITABINE - CETAGEN 500 MG
+                                 p Code Name:GST17043
+                               .modal-footer
+                                button.btn.btn-primary(type='button', data-dismiss='modal') Ok
+                      tr
+                        td A.V FISTULA NEEDLE w/ FIXED WING G15
+                        td POLYMED
+                        td 19,400
+                        td 11/2019
+                        td
+                          button.btn.btn-simple.btn-info.btn-icon.table-action.view(rel='tooltip', title='View', data-toggle='modal', data-target='#myModal2')
+                           i.ti-eye
+                          #myModal2.modal.fade(tabindex='-1', role='dialog', aria-labelledby='exampleModalLabel', aria-hidden='true')
+                           .modal-dialog(role='document')
+                             .modal-content
+                               .modal-header
+                                 h5#exampleModalLabel.modal-title
+                                  | Product Details
+                                 button.close(type='button', data-dismiss='modal', aria-label='Close')
+                                  span.ti-close(aria-hidden='true')
+                               .modal-body
+                                  p A.V FISTULA NEEDLE w/ FIXED WING G15
+                                  p POLYMED
+                               .modal-footer
+                                button.btn.btn-primary(type='button', data-dismiss='modal') Ok
+    #chartPreferences.ct-chart.ct-perfect-fourth(style='display: none;')
+    #chartHours.ct-chart(style='display: none;')
+    #chartActivity.ct-chart(style='display: none;')
+
         
-        <!-- /.container-fluid-->
-        <!-- /.content-wrapper-->
         <footer class="sticky-footer">
         <div class="container">
             <div class="text-center">
-            <small>Copyright © Irregular Please 2018</small>
+            <small>Copyright © Pharmastar Int'l Trading Corporation 2018</small>
             </div>
         </div>
         </footer>
@@ -79,7 +106,8 @@ block content
         <a class="scroll-to-top rounded" href="#page-top">
         <i class="fa fa-angle-up"></i>
         </a>
-        <!-- Bootstrap core JavaScript-->
+        link(href='../themify-icons/themify-icons.css', rel='stylesheet')
+
         <script src="/adminui/vendor/jquery/jquery.min.js"></script>
         <script src="/adminui/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
         <!-- Core plugin JavaScript-->
@@ -95,52 +123,6 @@ block content
         <script src="/adminui/js/sb-admin-charts.min.js"></script>
     </div>
     </body>
-
-    //-----Modal Add Petition 
-    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h3 class="modal-title" id="lineModalLabel">Petition Form:</h3>
-                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
-                </div>
-                <div class="modal-body">
-                    
-                    <!-- content goes here -->
-                    <form method="POST" action="petition/addpetition">
-                    <div class="row">
-                    <div class="form-group col-8">
-                        <label for="petitioncode">Subject Code</label>
-                        input(type="text" class="form-control" id="petitioncode" placeholder="(ex. COMP4013)" name="petit_code" required)
-                    </div>
-                    </div>
-                    
-                    <div class="row">
-                    <div class="form-group col-6">
-                        <label for="petitionday">Day</label><br>
-                        <input type="checkbox" name="petit_check" value="MON"> Monday<br>
-                        <input type="checkbox" name="petit_check" value="TUE"> Tuesday<br>
-                        <input type="checkbox" name="petit_check" value="WED"> Wednesday<br>
-                        <input type="checkbox" name="petit_check" value="THU"> Thursday<br>
-                        <input type="checkbox" name="petit_check" value="FRI"> Friday<br>
-                        <input type="checkbox" name="petit_check" value="SAT"> Saturday<br>
-                        <input type="checkbox" name="petit_check" value="SUN"> Sunday<br>
-                    </div>
-                    <div class="form-group col-6">
-                        <label for="petitiontime">Time</label>
-                        input(type="text" class="form-control" id="petitiontime" placeholder="(ex. 7:30am-9:30am)" name="petit_time" required)
-                    </div>
-                    </div>
-                    </div>
-                    <button type="submit" class="btn btn-default float-right" id="submitpetition">Submit</button>
-                    
-                    </form>
-
-                </div>
-                
-            </div>
-        </div>
-        </div>
 
         script.
             $('input[type=checkbox]').on('change', function (e) {
