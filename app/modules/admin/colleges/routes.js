@@ -14,7 +14,7 @@ router.get('/',(req, res) => {
         console.log(results);
         if (err) console.log(err);
         // console.log(results);
-        res.render('admin/colleges/views/index', {tbl_itemStock:results});
+        res.render('admin/colleges/views/index', {tbl_itemStock: results});
     });
 });
 
@@ -187,7 +187,7 @@ router.post('/:int_itemStockID/edit/updatemed', (req, res) => {
         db.query(queryString2, (err, results2, fields) => {        
             if (err) throw err;
             console.log(results2);
-            res.render(`admin/colleges/views/index`);
+            res.redirect('/admin/colleges');
     });
 });
 });

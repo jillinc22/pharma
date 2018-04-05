@@ -37,34 +37,34 @@ block content
                     <th>Actions</th>
                     </tr>
                 </tfoot>
-                //- <tbody>
-                //- each stud in tbl_students
-                //-     <tr>
-                //-     <td>
-                //-         value=stud.int_userID
-                //-     </td>
-                //-     <td>
-                //-         value=stud.char_userStudNo
-                //-     </td>
-                //-     <td>
-                //-         value=stud.varchar_userFName
-                //-     </td>
-                //-     <td>
-                //-         value=stud.varchar_userLName
-                //-     </td>
-                //-     <td>
-                //-         value=stud.varchar_userPassword
-                //-     </td>
-                //-     <td>
-                //-         value=stud.varchar_userEmailAdd
-                //-     </td>
-                //-     <td>    
-                //-         value=stud.varchar_userAddress
-                //-     </td>
-                //-     <td>
-                //-         a(href=`/admin/${stud.int_userID}/editstudent` id="editstud"): span.fa.fa-edit Edit
-                //-     </td>
-                //-     </tr>
+                <tbody>
+                each item in tbl_itemStock
+                    <tr>
+                    <td>
+                        value=item.int_itemStockID
+                    </td>
+                    <td>
+                        value=item.varchar_itemName
+                    </td>
+                    <td>
+                        value=item.varchar_diagnosticGenName
+                    </td>
+                    <td>
+                        value=item.varchar_itemDescription
+                    </td>
+                    <td>
+                        value=item.varchar_diagnosticPacking
+                    </td>
+                    <td>
+                        value=item.date_diagnosticExpiry
+                    </td>
+                    <td>    
+                        value=item.decimal_itemPrice + ".00"
+                    </td>
+                    <td>
+                        a(href=`/admin/petition/${item.int_itemStockID}/edit` id="editpetit"): span.fa.fa-edit Edit
+                    </td>
+                    </tr>
                 </tbody>
                 </table>
             </div>

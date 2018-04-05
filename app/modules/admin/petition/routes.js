@@ -5,14 +5,15 @@ var db = require('../../../lib/database')();
 
 router.get('/',(req, res) => {
     console.log('=================================');
-    console.log('ADMIN MANAGE SCHEDULES:');
+    console.log('ADMIN Diagnostics:');
     console.log('=================================');
-   
-    var queryString =`SELECT tbl_itemStock.int_itemStockID, tbl_itemStock.varchar_itemName, tbl_diagnostic.varchar_diagnosticGenName, tbl_itemStock.varchar_itemDescription, tbl_diagnostic.varchar_diagnosticPacking, tbl_diagnostic.date_diagnosticExpiry, tbl_itemStock.decimal_itemPrice FROM tbl_diagnostic JOIN tbl_itemStock ON tbl_diagnostic.int_itemStockID=tbl_itemStock.int_itemStockID`
+    var queryString =`SELECT tbl_itemStock.int_itemStockID, tbl_medicine.varchar_medCode, tbl_itemStock.varchar_itemName, tbl_medicine.varchar_medGenName, tbl_itemStock.varchar_itemDescription, tbl_medicine.varchar_medForm, tbl_medicine.date_medicineExpiry, tbl_itemStock.decimal_itemPrice FROM tbl_itemStock JOIN tbl_medicine ON tbl_itemStock.int_itemStockID=tbl_medicine.int_itemStockID`
+    
+    var queryString =`SELECT tbl_itemStock.int_itemStockID, tbl_itemStock.varchar_itemName, tbl_diagnostic.varchar_diagnosticGenName, tbl_itemStock.varchar_itemDescription, tbl_diagnostic.varchar_diagnosticPacking, tbl_diagnostic.date_diagnosticExpiry, tbl_itemStock.decimal_itemPrice FROM tbl_itemStock JOIN tbl_diagnostic ON tbl_itemStock.int_itemStockID=tbl_diagnostic.int_itemStockID`
     db.query(queryString, (err, results, fields) => {
         if (err) console.log(err);
         console.log(results);
-        res.render('admin/petition/views/index',{tbl_diagnostic:results});
+        res.render('admin/petition/views/index',{tbl_itemStock:results});
     });
 });
 
