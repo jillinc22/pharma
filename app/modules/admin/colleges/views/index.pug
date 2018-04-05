@@ -107,68 +107,6 @@ block content
         <script src="/adminui/js/sb-admin-charts.min.js"></script>
     </div>
 
-
-    <div class="modal fade" id="myMedicine" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
-        <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLongTitle">Edit Medicine Details</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-            </button>
-            </div>
-            <div class="modal-body">
-            <form method="POST" action='/admin/colleges' name="login_form">
-                
-                    <div class="form-group">
-                        <label for="medcode"><span class="glyphicon glyphicon-user"></span>Code</label>
-                        <input type="text" class="form-control" name="medcode" id="medcode" placeholder="" required>
-                    </div>
-                    <div class="row">
-                    <div class="form-group col-md-6">
-                        <label for="medname"><span class="glyphicon glyphicon-eye-open"></span>Name</label>
-                        <input type="text" class="form-control" name="medname" id="medname" placeholder="" required>
-                    </div>
-                    <div class="form-group col-md-6">
-                        <label for="medgen"><span class="glyphicon glyphicon-eye-open"></span>Generic Name</label>
-                        <input type="text" class="form-control" name="medgen" id="medgen" placeholder="" required>
-                    </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="meddescription"><span class="glyphicon glyphicon-eye-open"></span>Description</label>
-                        <input type="text" class="form-control" name="meddescription" id="meddescription" placeholder="" required>
-                    </div>
-                    <div class="row">
-                    <div class="form-group col-md-6">
-                        <label for="medform"><span class="glyphicon glyphicon-eye-open"></span>Form</label>
-                        <input type="text" class="form-control" name="medform" id="medform" placeholder="" required>
-                    </div>
-                    <div class="form-group col-md-6">
-                        <label for="medexpiry"><span class="glyphicon glyphicon-eye-open"></span>Expiry</label>
-                        <input type="date" class="form-control" name="medexpiry" id="medexpiry" placeholder="" required>
-                    </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="medprice"><span class="glyphicon glyphicon-eye-open"></span>Price</label>
-                        <input type="number" class="form-control" name="medprice" id="medprice" placeholder="" required>
-                    </div>
-                    <button type="submit" id="modalbutton" class="btn btn-primary float-right" position="center" style="background-color#21BA45;color:whitesmoke;border:none;">Submit</button>
-        
-            </form>
-        </div>
-        <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            </div>
-        </div>
-    </div>
-    </div>
-              
-            
-                
-    </div>
-    </div>
-    </div>                
-
     <div class="modal fade" id="addMedicine" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
@@ -179,8 +117,8 @@ block content
             </button>
         </div>
         <div class="modal-body">
-            <form method="POST" action='colleges' name="login_form">
-                    <input type=>
+            <form method="POST" action='colleges' name="addMedicine">
+                    <input type="hidden" name="" value="int_itemStockID">
                     <div class="form-group">
                         <label for="medcode"><span class="glyphicon glyphicon-user"></span>Code</label>
                         <input type="text" class="form-control" name="medcode" id="medcode" placeholder="" required>

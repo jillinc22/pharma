@@ -20,7 +20,7 @@ router.get('/',(req, res) => {
 
 router.post('/',(req, res) => {
     console.log('=================================');
-    console.log('Medicines Update:');
+    console.log('Medicines Add');
     console.log('=================================');
 
     var queryString1 = `INSERT INTO \`tbl_itemStock\` (
@@ -34,7 +34,7 @@ router.post('/',(req, res) => {
         "${req.body.meddescription}",
         "${req.body.medprice}");`;
        
-        var queryString2 =`SELECT * FROM tbl_itemStock ORDER BY int_userID DESC LIMIT 0,1`
+        var queryString2 =`SELECT * FROM tbl_itemStock ORDER BY int_itemStockID DESC LIMIT 0,1`
 
         db.query(queryString1, (err, results1, fields) => {        
             if (err) throw err;    
@@ -48,7 +48,6 @@ router.post('/',(req, res) => {
                 
                 VALUES(
                 "${results2.int_itemStockID}",
-                "${req.body.medcode}",
                 "${req.body.medcode}",
                 "${req.body.medgen}",
                 "${req.body.medform}",
@@ -155,7 +154,7 @@ router.post('/',(req, res) => {
 //     })
 // })
 
-router.get('/:int_itemStockID/edit', (req, res) => {
+router.get('/:int_itemStockID/updatemed', (req, res) => {
     console.log("PUMASOK SA GET REQ.PARAMS")
     
     var queryString = `SELECT * FROM tbl_itemStock JOIN tbl_medicine ON tbl_itemStock.int_itemStockID=tbl_medicine.int_itemStockID
@@ -167,7 +166,7 @@ router.get('/:int_itemStockID/edit', (req, res) => {
     });
 });
 
-router.post('/:int_itemStockID/edit/updatemed', (req, res) => {
+router.post('/:int_itemStockID/updatemed', (req, res) => {
     console.log("PUMASOK SA POST REQ.PARAMS")
     
     var queryString = `UPDATE tbl_itemStock SET

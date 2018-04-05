@@ -4,7 +4,7 @@ block content
    
     <div class="content-wrapper">
         <div class="container-fluid">
-            each result in result_petit
+            each result in result_diag
                 h4 Update:
                     value=" Item no. "+result.int_itemStockID
 
@@ -12,34 +12,34 @@ block content
                     input(type="hidden" value=`${result.int_itemStockID}` name="int_itemStockID")
                     <div class="row">
                         <div class="form-group col-4">
-                            <label for="medname">Name</label>
-                            input(type="text" class="form-control" id="medname" placeholder="Medicine Name" name="medname" required)
+                            <label for="diagname">Name</label>
+                            input(type="text" class="form-control" id="diagname" placeholder="Diagnostics Name" name="diagname" value=`${result.varchar_itemName}` required)
                         </div>
                         <div class="form-group col-4">
-                            <label for="medgen">Generic Name</label>
-                            input(type="text" class="form-control" id="medgen" placeholder="Medicine Generic Name" name="medgen" required)
+                            <label for="diaggen">Generic Name</label>
+                            input(type="text" class="form-control" id="diaggen" placeholder="Diagnostic Generic Name" name="diaggen" value=`${result.varchar_diagnosticGenName}` required)
                         </div>
                     </div>
                     <div class="row">
                         <div class="form-group col-12">
-                            <label for="meddescription">Description</label>
-                            input(type="text" class="form-control" id="meddescription" placeholder="Medicine Description" name="meddescription" required)
+                            <label for="diagdescription">Description</label>
+                            input(type="text" class="form-control" id="diagdescription" placeholder="Diagnostic Description" name="diagdescription" value=`${result.varchar_itemDescription}` required)
                         </div>
                     </div>
                     <div class="row">
                         <div class="form-group col-4">
-                            <label for="medform">Form</label>
-                            input(type="text" class="form-control" id="medform" placeholder="Medicine Packing" name="medform" required)
+                            <label for="diagform">Form</label>
+                            input(type="text" class="form-control" id="diagform" placeholder="Diagnostic Packing" name="diagform" value=`${result.varchar_diagnosticPacking}` required)
                         </div>
                         <div class="form-group col-4">
-                            <label for="medexpiry">Expiry</label>
-                            input(type="date" class="form-control" id="medexpiry" placeholder="Medicine Expiry" name="medexpiry" required)
+                            <label for="diagexpiry">Expiry</label>
+                            input(type="date" class="form-control" id="diagexpiry" placeholder="Diagnostic Expiry" name="diagexpiry" value=`${result.date_diagnosticExpiry}` required)
                         </div>
                     </div>
                     <div class="row">
                         <div class="form-group col-4">
-                            <label for="medprice">Price</label>
-                            input(type="number" class="form-control" id="medprice" placeholder="Medicine Price" name="medprice" required)
+                            <label for="diagprice">Price</label>
+                            input(type="number" class="form-control" id="diagprice" placeholder="Diagnostic Price" name="diagprice" value=`${result.decimal_itemPrice}`  + ".00" required)
                         </div>
                     </div>
                     <button type="submit" class="btn btn-default float-right" id="buttoneditprofile">Submit</button>

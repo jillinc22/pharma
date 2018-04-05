@@ -99,5 +99,60 @@ block content
         <script src="/adminui/js/sb-admin-datatables.min.js"></script>
         <script src="/adminui/js/sb-admin-charts.min.js"></script>
     </div>
+          
+    </div>
+    </div>
+    </div>
+    <div class="modal fade" id="addDiagnostic" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLongTitle">Add Diagnostic</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+            <form method="POST" action='petition' name="addDiagnostic">
+                    <input type="hidden" name="" value="int_itemStockID">
+                    <div class="row">
+                    <div class="form-group col-md-6">
+                        <label for="diagname"><span class="glyphicon glyphicon-eye-open"></span>Name</label>
+                        <input type="text" class="form-control" name="diagname" id="diagname" placeholder="" required>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="diaggen"><span class="glyphicon glyphicon-eye-open"></span>Generic Name</label>
+                        <input type="text" class="form-control" name="diaggen" id="diaggen" placeholder="" required>
+                    </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="diagdescription"><span class="glyphicon glyphicon-eye-open"></span>Description</label>
+                        <input type="text" class="form-control" name="diagdescription" id="diagdescription" placeholder="" required>
+                    </div>
+                    <div class="row">
+                    <div class="form-group col-md-6">
+                        <label for="diagpacking"><span class="glyphicon glyphicon-eye-open"></span>Packing</label>
+                        <input type="text" class="form-control" name="diagpacking" id="diagpacking" placeholder="" required>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="diagexpiry"><span class="glyphicon glyphicon-eye-open"></span>Expiry</label>
+                        <input type="date" class="form-control" name="diagexpiry" id="diagexpiry" placeholder="" required>
+                    </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="diagprice"><span class="glyphicon glyphicon-eye-open"></span>Price</label>
+                        <input type="number" class="form-control" name="diagprice" id="diagprice" placeholder="" required>
+                    </div>
+                    <button type="submit" id="modalbutton" class="btn btn-primary float-right" position="center" style="background-color#21BA45;color:whitesmoke;border:none;">Submit</button>
+        
+            </form>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+    </div>
+
     </body>
     

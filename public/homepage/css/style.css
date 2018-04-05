@@ -152,7 +152,15 @@ h1, h2, h3, h4, h5, h6 {
 #clor{
   color: rgb(159, 197, 232);
 }
-
+iframe{
+  font-size: 50%;
+  background-color: #21BA45;
+  color: #FFFFFF;
+  font-size: 1.71428571rem;
+  font-family: 'Lato', 'Basic', sans-serif;
+  box-shadow: 0px 0em 0px 0px rgba(34, 36, 38, 0.15) inset;
+  border-radius: 10%;
+}
 #hero h1 {
   margin: 30px 0 10px 0;
   font-size: 100px;

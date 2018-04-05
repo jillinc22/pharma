@@ -4,38 +4,33 @@ block content
    
     <div class="content-wrapper">
         <div class="container-fluid">
-            each result in result_stud 
+            each result in result_mach 
                 h4 Update:
-                    value=" "+result.char_courseCode
+                    value=" "+result.int_itemStockID
 
                 <form method="POST" action="editsched">
                     <hr>
-                    <div class = "row">
-                    <div class="form-group col-6">
-                            <label for="editsubjcode">Subject Code</label>
-                            input(type="text" class="form-control" id="editsubjcode" placeholder="(ex. COMP4083)" value=`${result.char_courseCode}` name="sched_subjcode" required)
-                    </div>
-                    </div>
-                    <div class="row">
-                        <div class="form-group col-6">
-                            <label for="editday">Day/s</label>
-                            input(type="text" class="form-control" id="editday" placeholder="(ex. M,T,S)" value=`${result.varchar_schedDay}` name="sched_day" required)
-                        </div>
-                        <div class="form-group col-6">
-                            <label for="editlname">Time</label>
-                            input(type="text" class="form-control" id="edittime" placeholder="(ex. 3:00PM-6:00PM)" name="sched_time" value=`${result.varchar_schedTime}` required)
-                        </div>
+                    <input type="hidden" name="" value="int_itemStockID">
+                    <div class="form-group">
+                        <label for="machcode"><span class="glyphicon glyphicon-user"></span>Serial Code</label>
+                        <input type="text" class="form-control" name="machcode" id="machcode" placeholder="" required>
                     </div>
                     <div class="row">
-                        <div class="form-group col-6">
-                            <label for="editemail">Room</label>
-                            input(type="text" class="form-control" id="editroom" placeholder="(ex. N506)" value=`${result.varchar_schedRoom}` name="sched_room" required)
-                        </div>
-                        <div class="form-group col-6">
-                            <label for="editpass">Professor</label>
-                            input(type="text" class="form-control" id="editprof" placeholder="(ex. Prof. Salonga)" name="sched_prof" value=`${result.varchar_schedProf}` required)
-                        </div>
+                    <div class="form-group col-md-6">
+                        <label for="machname"><span class="glyphicon glyphicon-eye-open"></span>Name</label>
+                        <input type="text" class="form-control" name="machname" id="machname" placeholder="" required>
                     </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="machdescription"><span class="glyphicon glyphicon-eye-open"></span>Description</label>
+                        <input type="text" class="form-control" name="machdescription" id="machdescription" placeholder="" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="machprice"><span class="glyphicon glyphicon-eye-open"></span>Price</label>
+                        <input type="number" class="form-control" name="machprice" id="machprice" placeholder="" required>
+                    </div>
+                    <button type="submit" id="modalbutton" class="btn btn-primary float-right" position="center" style="background-color#21BA45;color:whitesmoke;border:none;">Submit</button>
+        
                     </div>
                     <button type="submit" class="btn btn-default float-right" id="buttoneditprofile">Submit</button>
                 </div>

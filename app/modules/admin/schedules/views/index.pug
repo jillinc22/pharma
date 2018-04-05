@@ -7,62 +7,53 @@ block content
         <!-- Example DataTables Card-->
         <div class="card mb-3">
             <div class="card-header">
-            <i class="fa fa-list-ul"></i> List of Students</div>
+            <i class="fa fa-list-ul"></i> List of Machines</div>
+            <button type="button" class="btn btn-secondary btn-lg btn-block" href="#portfolio" data-toggle="modal" data-target="#addMachine">Add Machine</button>
+            
             <div class="card-body">
             <div class="table-responsive">
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                 <thead>
                     <tr>
-                    <th>Student ID</th>
-                    <th>Student No.</th>
-                    <th>First Name</th>
-                    <th>Last Name</th>
-                    <th>Password</th>
-                    <th>Email Address</th>
-                    <th>Address</th>
+                    <th>ID</th>
+                    <th>Serial Code</th>
+                    <th>Name</th>
+                    <th>Description</th>
+                    <th>Price Per Item</th>
                     <th>Actions</th>
                     </tr>
                 </thead>
                 <tfoot>
                     <tr>
-                    <th>Student ID</th>
-                    <th>Student No.</th>
-                    <th>First Name</th>
-                    <th>Last Name</th>
-                    <th>Password</th>
-                    <th>Email Address</th>
-                    <th>Address</th>
+                    <th>ID</th>
+                    <th>Serial Code</th>
+                    <th>Name</th>
+                    <th>Description</th>
+                    <th>Price Per Item</th>
                     <th>Actions</th>
                     </tr>
                 </tfoot>
-                //- <tbody>
-                //- each stud in tbl_students
-                //-     <tr>
-                //-     <td>
-                //-         value=stud.int_userID
-                //-     </td>
-                //-     <td>
-                //-         value=stud.char_userStudNo
-                //-     </td>
-                //-     <td>
-                //-         value=stud.varchar_userFName
-                //-     </td>
-                //-     <td>
-                //-         value=stud.varchar_userLName
-                //-     </td>
-                //-     <td>
-                //-         value=stud.varchar_userPassword
-                //-     </td>
-                //-     <td>
-                //-         value=stud.varchar_userEmailAdd
-                //-     </td>
-                //-     <td>    
-                //-         value=stud.varchar_userAddress
-                //-     </td>
-                //-     <td>
-                //-         a(href=`/admin/${stud.int_userID}/editstudent` id="editstud"): span.fa.fa-edit Edit
-                //-     </td>
-                //-     </tr>
+                each item in tbl_itemStock
+                    <tr>
+                    <td>
+                        value=item.int_itemStockID
+                    </td>
+                    <td>
+                        value=item.varchar_serialCode
+                    </td>
+                    <td>
+                        value=item.varchar_itemName
+                    </td>
+                    <td>
+                        value=item.varchar_itemDescription
+                    </td>
+                    <td>    
+                        value=item.decimal_itemPrice + ".00"
+                    </td>
+                    <td>
+                        a(href=`/admin/schedules/${item.int_itemStockID}/edit` id="editsched"): span.fa.fa-edit Edit
+                    </td>
+                    </tr>
                 </tbody>
                 </table>
             </div>
@@ -97,5 +88,47 @@ block content
         <script src="/adminui/js/sb-admin-datatables.min.js"></script>
         <script src="/adminui/js/sb-admin-charts.min.js"></script>
     </div>
+
+    <div class="modal fade" id="addMedicine" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLongTitle">Add Medicine</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+            <form method="POST" action='schedules' name="addMachine">
+                    <input type="hidden" name="" value="int_itemStockID">
+                    <div class="form-group">
+                        <label for="machcode"><span class="glyphicon glyphicon-user"></span>Serial Code</label>
+                        <input type="text" class="form-control" name="machcode" id="machcode" placeholder="" required>
+                    </div>
+                    <div class="row">
+                    <div class="form-group col-md-6">
+                        <label for="machname"><span class="glyphicon glyphicon-eye-open"></span>Name</label>
+                        <input type="text" class="form-control" name="machname" id="machname" placeholder="" required>
+                    </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="machdescription"><span class="glyphicon glyphicon-eye-open"></span>Description</label>
+                        <input type="text" class="form-control" name="machdescription" id="machdescription" placeholder="" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="machprice"><span class="glyphicon glyphicon-eye-open"></span>Price</label>
+                        <input type="number" class="form-control" name="machprice" id="machprice" placeholder="" required>
+                    </div>
+                    <button type="submit" id="modalbutton" class="btn btn-primary float-right" position="center" style="background-color#21BA45;color:whitesmoke;border:none;">Submit</button>
+        
+            </form>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+    </div>
+
     </body>
     
