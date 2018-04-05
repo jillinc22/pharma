@@ -1,0 +1,26 @@
+extends ../../home/views/navbar.pug
+
+block content
+    link(rel="stylesheet" href="/stylesheets/admin.css")
+    link(rel="stylesheet" href="/stylesheets/orglists.css")
+    link(rel="stylesheet" href="/stylesheets/w3school.css")
+    #background.blur
+    #conta1.container.w3-animate-bottom
+        h2 &nbsp Lists of students:
+        br
+        table#liststable.table.table-hover.table-sm
+            thead
+                tr
+                    th User ID
+                    th Last Name
+                    th First Name
+                    th User Type
+                    th Email Address
+            tbody
+            each user in tbl_user
+                tr
+                        td=user.int_userID
+                        td=user.varchar_userLName
+                        td=user.varchar_userFName
+                        td=user.varchar_userType
+                        td=user.varchar_userEmailAdd

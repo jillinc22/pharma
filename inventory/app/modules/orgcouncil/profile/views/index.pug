@@ -1,0 +1,159 @@
+extends ../../home/views/navbar.pug
+
+block content
+    link(rel="stylesheet" href="/stylesheets/orgcouncilprofile.css")
+    //- <h2 style="font-family:myAcid">&nbsp Admin Profile</h2>
+
+   
+        //- <h2> User ID:
+        //-     value= user.int_userID 
+        //- </h2>
+        //- <h2> First Name:
+        //-     value= user.varchar_userFName
+        //- </h2>
+    //- <div class = "container">
+    //- <div class="row">
+    //-     <div class="col-lg-5">
+    //-         <div class="media">
+    //-             <a class="pull-left" href="#">
+    //-                 <img class="media-object dp img-circle" src="/pics/life.jpg" style="width: 100px;height:100px;">
+    //-             </a>
+    //-             <div class="media-body">
+    //-             each user in tbl_user
+    //-                 <h4 class="media-heading">
+    //-                     value= user.varchar_userLName +", "
+    //-                     value= user.varchar_userFName
+    //-                 <small> 
+    //-                     value= user.varchar_userAddress
+    //-                 </small></h4>
+    //-                 <h5>Software Developer at <a href="http://gridle.in">Gridle.in</a></h5>
+    //-                 <hr style="margin:8px auto">
+
+    //-                 <span class="label label-default">HTML5/CSS3</span>
+    //-                 <span class="label label-default">jQuery</span>
+    //-                 <span class="label label-info">CakePHP</span>
+    //-                 <span class="label label-default">Android</span>
+    //-             </div>
+    //-         </div>
+    //-     </div>
+    //- </div>
+    //- </div>
+
+     <!--Pulling Awesome Font -->
+    <div id="background" class="blur">
+    each user in tbl_user
+        <center>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                <div class="col-md-4">
+                    <div class="con " style="">
+                                </br>
+                                <center>
+                                <div class="panel-heading"><h4>User Type: <small>
+                                    <u>
+                                    value= user.varchar_userType
+                                    </u>
+                                    </small>
+                                    
+                                //- <h6>Org/Council Code:<small>
+                                //-     value= user.char_orgCode
+                                </small>
+                                </h6>
+                                </div>
+                                <div class="panel-body text-left">
+                                    <div class="row">
+                                        <div class="col-12 ">
+                                            <center>
+                                                <a>
+                                                    <img class="media-object dp img-circle" src="/pics/orgcouncil.jpg"style="width: 180px;height:180px;">
+                                                </a>
+                                            </center>
+                                        </div>
+                                        <div class="col-12">
+                                            <br>
+                                            <h2>
+                                                value= user.varchar_userFName +" "
+                                                value= user.varchar_userLName
+                                            </h2>
+                                            <p>
+                                                value= user.varchar_userType + " at " + "Irregular Please"
+                                            </p>
+                                            <p>
+                                                <i class="fa fa-envelope-o"></i>&nbsp
+                                                    value= user.varchar_userEmailAdd
+                                                <br>
+                                                <i class="fa fa-address-card-o"></i>&nbsp
+                                                    value= user.varchar_userAddress
+                                                <br>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="IdFooter" class="panel-footer text-right">
+                                    <ul class="social-network social-circle">
+                                        
+                                        <li><u>Edit</u> &nbsp<a href="#" class="edit" title="Edit" data-toggle="modal" data-target="#myModal"><i class="fa fa-pencil"></i></a></li>
+                                    </ul>
+                                </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 class="modal-title" id="lineModalLabel">Edit Profile:</h3>
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+                </div>
+                <div class="modal-body">
+                    
+        
+                    <form method="POST" action="profile/editprofile">
+                        input(type="hidden" name="userid" value=`${user.int_userID}`)
+                    <div class="row">
+                    <div class="form-group col-7">
+                        <label for="editorgcode">Org/Student Council Code</label>
+                        input(type="text" class="form-control" id="orgcode" placeholder="Org Code" name="orgcode")
+                    </div>
+                    <div class="form-group col-6">
+                        <label for="editfname">First Name</label>
+                        input(type="text" class="form-control" id="editfname" placeholder="First Name" value=`${user.varchar_userFName}` name="user_fname")
+                    </div>
+                    <div class="form-group col-6">
+                        <label for="editlname">Last Name</label>
+                        input(type="text" class="form-control" id="editlname" placeholder="Last Name" value=`${user.varchar_userLName}` name="user_lname")
+                    </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="editemail">Email Address</label>
+                        input(type="email" class="form-control" id="editemail" placeholder="Enter email" value=`${user.varchar_userEmailAdd}` name="user_email")
+                    </div>
+                    <label for="editpass">Password</label>
+                    <div class="row">
+                    <div class="form-group col-9">
+                        input(type="password" class="form-control" id="editpass" placeholder="Password" value=`${user.varchar_userPassword}` name="user_password")
+                    </div>
+                    <div class="form-group col-1">
+                        <button type="button" id="eye" onclick="if(user_password.type=='text')password.type='password'; else user_password.type='text';"><i class="fa fa-eye" aria-hidden="true"></i>
+                    </button>
+                    </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="editaddress">Address</label>
+                        input(type="text" class="form-control" id="editaddress" placeholder="Address" value=`${user.varchar_userAddress}` name="user_address")
+                    </div>
+                    <hr>
+                    <button type="submit" class="btn btn-default float-right" id="buttoneditprofile">Submit</button>
+                    
+                    </form>
+
+                </div>
+                
+            </div>
+        </div>
+        </div>

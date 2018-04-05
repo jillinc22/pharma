@@ -1,0 +1,68 @@
+extends ../../home/views/navbar.pug
+
+block content
+   
+    
+    link(rel="stylesheet" href="/stylesheets/admin.css")
+    link(rel="stylesheet" href="/stylesheets/adminorgcouncil.css")
+
+    <h2 style="font-family:myAcid;">&nbsp Manage Organizations/Student Council Information:</h2>
+    <p>&nbsp
+    <a href="#" class="btn btn-outlined btn-sm" data-wow-delay="0.7s" data-toggle="modal" data-target="#myModal">Add an Org/Council</a>
+    //- <a href="#" class="edit" title="Edit" data-toggle="modal" data-target="#myModal">what
+    </p>
+    <br>
+    
+    <div class="container">
+    <table class="table table-hover table-sm" id="liststable">
+        <thead>
+            <tr>
+            <th>Organization/Council ID</th>
+            <th>Organization/Council Name</th>
+            <th>Number of Members</th>
+            <th>Organization/Council Code</th>
+            </tr>
+        </thead>
+        <tbody>
+            each org in tbl_org
+                <tr>
+                td=org.int_orgID   
+                td=org.varchar_orgName
+                td=org.int_orgMemb
+                td=org.char_orgCode
+                </tr>
+    </table>
+    </div>
+    
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h3 class="modal-title" id="lineModalLabel">Add an Org/Council:</h3>
+                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+                    </div>
+                    <div class="modal-body">
+                        <form method="POST" action="orgcouncil/addorgcouncil">
+                        
+                            
+                            
+                            <div class="form-group col-9">
+                                <label for="org_name">Org/Council Name</label>
+                                input(type="text" class="form-control" id="org_name" placeholder="Org/Council Name" name="org_name" required)
+                            </div>
+                            
+                            <div class="form-group col-9">
+                                <label for="org_code">Org/Council Code</label>
+                                input(type="text" class="form-control" id="org_code" placeholder="Org/Council Code" name="org_code" required)
+                            </div>
+                            
+                            <hr>
+                            <button type="submit" class="btn btn-default float-right" id="buttoneditprofile">Submit</button>
+                            
+                        </form>
+
+                    </div>
+                    
+                </div>
+            </div>
+            </div>

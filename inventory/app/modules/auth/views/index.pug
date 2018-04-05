@@ -1,0 +1,96 @@
+extends ../../../templates/master.pug
+
+block body
+
+    //--Stylesheets, scripts, etc..--//
+    <link href="/assets/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <script src="/assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/assets/jquery/jquery-3.2.1.slim.min.js"></script>
+    <script src="/assets/popper/popper.min.js"></script>
+    <link href="/stylesheets/home.css" rel="stylesheet">
+
+    <title>Irregular Please!</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+
+    //- <!-- Favicons -->
+    <link href="/homepage/img/Logo2.png" rel="icon">
+    <link href="/homepage/img/Logo2.png" rel="icon2">
+
+    //- <!-- Google Fonts -->
+    <link href="/homepage/css/googlefonts.css" rel="stylesheet">
+
+    //- <!-- Bootstrap CSS File -->
+    //- <link href="/homepage/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    //- <!-- Libraries CSS Files -->
+    <link href="/homepage/lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="/homepage/lib/animate/animate.min.css" rel="stylesheet">
+
+    //- <!-- Main Stylesheet File -->
+    <link href="/homepage/css/style.css" rel="stylesheet">
+    
+    <section id="hero">
+        <div class="hero-container">
+        <h1>Pharmastar</h1>
+        <h2>Your Source for all your Healthcare Needs </h2>        
+        <div class="btn-group" role="group" aria-label="Basic example">
+            <div class="fb-share-button" data-href="https://www.facebook.com/Pharmastar-International-Trading-corp-608662995974288/" data-layout="button_count" data-size="large" data-mobile-iframe="true"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.facebook.com%2FPharmastar-International-Trading-corp-608662995974288%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore"><button type="button" class="btn btn-success">Share</button></a></div>
+            <a href="#portfolio" data-toggle="modal" data-target="#myModal"><button type="button" class="btn btn-success">Login</button></a>
+            <a href="/signup"><button type="button" class="btn btn-success">Signup</button></a>
+        </div>
+        </div>
+    </section><!-- #hero -->
+
+  
+
+    <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+
+    //- <!-- JavaScript Libraries -->
+    <script src="/homepage/lib/jquery/jquery.min.js"></script>
+    <script src="/homepage/lib/jquery/jquery-migrate.min.js"></script>
+    <script src="/homepage/lib/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="/homepage/lib/easing/easing.min.js"></script>
+    <script src="/homepage/lib/wow/wow.min.js"></script>
+
+    <script src="/homepage/lib/waypoints/waypoints.min.js"></script>
+    <script src="/homepage/lib/counterup/counterup.min.js"></script>
+    <script src="/homepage/lib/superfish/hoverIntent.js"></script>
+    <script src="/homepage/lib/superfish/superfish.min.js"></script>
+
+    //- <!-- Template Main Javascript File -->
+    <script src="/homepage/js/main.js"></script>
+
+    //- Modal in Homepage
+    <div class="modal fade" id="myModal"  aria-labelledby="modalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-sm" style="background: white;">
+            <div class="modal-content">
+                <div class="modal-header">
+                <img src="/homepage/img/logo2.png" alt="logo" title="Logo" style="margin-left:15%; margin-top: 5%; margin-bottom: 5%; height:65%;width:70%;" />
+                
+                <button type="button" class="close" data-dismiss="modal">x</button>
+            </div>
+            <div class="modal-body">
+                <form method="POST" action='home' name="login_form">
+                    <div class="form-group">
+                        <label for="modalusername"><span class="glyphicon glyphicon-user"></span> Username</label>
+                        <input type="text" class="form-control" name="modalusername" id="modalusername" placeholder="pharmastar@gmail.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="modalpass"><span class="glyphicon glyphicon-eye-open"></span> Password</label>
+                        <input type="password" class="form-control" name="modalpass" id="modalpass" placeholder="password" required>
+                    </div>
+                    <p><button type="submit" id="modalbutton" class="btn btn-primary float-right" position="center" style="background-color#21BA45;color:whitesmoke;border:none;">Sign in</button></p>
+                </form>
+            </br>
+            </br>
+            </div>
+              
+            
+                
+            </div>
+        </div>
+    </div>
+
+    

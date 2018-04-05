@@ -1,0 +1,90 @@
+extends ../../home/views/index.pug
+
+block content
+   
+    <div class="content-wrapper">
+        <div class="container-fluid">
+            each result in result_med   
+                h4 Update:
+                    value=" Item no. "+result.int_itemStockID
+
+                <form method="POST" action="edit/updatemed">
+                    input(type="hidden" value=`${result.int_itemStockID}` name="item_ID")
+                    <div class="row">
+                        <div class="form-group col-4">
+                            <label for="medcode"><span class="glyphicon glyphicon-user"></span>Code</label>
+                            input(type="text" class="form-control" id="medcode" placeholder="Medicine Code" name="medcode" value=`${result.varchar_medCode}` required)
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-4">
+                            <label for="medname">Name</label>
+                            input(type="text" class="form-control" id="medname" placeholder="Medicine Name" name="medname" value=`${result.varchar_itemName}` required)
+                        </div>
+                        <div class="form-group col-4">
+                            <label for="medgen">Generic Name</label>
+                            input(type="text" class="form-control" id="medgen" placeholder="Medicine Generic Name" name="medgen" value=`${result.varchar_medGenName}` required)
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-12">
+                            <label for="meddescription">Description</label>
+                            input(type="text" class="form-control" id="meddescription" placeholder="Medicine Description" name="meddescription" value=`${result.varchar_itemDescription}` required)
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-4">
+                            <label for="medform">Form</label>
+                            input(type="text" class="form-control" id="medform" placeholder="Medicine Form" name="medform" value=`${result.varchar_medForm}` required)
+                        </div>
+                        <div class="form-group col-4">
+                            <label for="medexpiry">Expiry</label>
+                            input(type="date" class="form-control" id="medexpiry" placeholder="Medicine Expiry" name="medexpiry" value=`${result.date_medicineExpiry}` required)
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-4">
+                            <label for="medprice">Price</label>
+                            input(type="number" class="form-control" id="medprice" placeholder="Medicine Price" name="medprice" value=`${result.decimal_itemPrice}` + ".00" required)
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-default float-right" id="buttoneditprofile">Submit</button>
+                    </div>
+                    </form>
+        </div>
+        </div>
+        
+        <!-- /.container-fluid-->
+        <!-- /.content-wrapper-->
+        <footer class="sticky-footer">
+        <div class="container">
+            <div class="text-center">
+            <small>Copyright © Pharmastar 2018</small>
+            </div>
+        </div>
+        </footer>
+        <!-- Scroll to Top Button-->
+        <a class="scroll-to-top rounded" href="#page-top">
+        <i class="fa fa-angle-up"></i>
+        </a>
+        <!-- Bootstrap core JavaScript-->
+        <script src="/adminui/vendor/jquery/jquery.min.js"></script>
+        <script src="/adminui/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <!-- Core plugin JavaScript-->
+        <script src="/adminui/vendor/jquery-easing/jquery.easing.min.js"></script>
+        <!-- Page level plugin JavaScript-->
+        <script src="/adminui/vendor/chart.js/Chart.min.js"></script>
+        <script src="/adminui/vendor/datatables/jquery.dataTables.js"></script>
+        <script src="/adminui/vendor/datatables/dataTables.bootstrap4.js"></script>
+        <!-- Custom scripts for all pages-->
+        <script src="/adminui/js/sb-admin.min.js"></script>
+        <!-- Custom scripts for this page-->
+        <script src="/adminui/js/sb-admin-datatables.min.js"></script>
+        <script src="/adminui/js/sb-admin-charts.min.js"></script>
+    </div>
+    </body>
+
+
+       
+
+        

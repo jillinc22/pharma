@@ -1,0 +1,147 @@
+extends ../../../templates/master.pug
+
+block body
+    //--Stylesheets, scripts, etc..--//
+    <link href="/assets/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <script src="/assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/assets/jquery/jquery-3.2.1.slim.min.js"></script>
+    <script src="/assets/popper/popper.min.js"></script>
+
+    link(rel="stylesheet" href="/stylesheets/home.css")
+    link(rel="stylesheet" href="/stylesheets/homemodal.css")
+    link(rel="stylesheet" href="/stylesheets/signup.css")
+    <link href="/homepage/css/googlefonts.css" rel="stylesheet">
+    <link href="/homepage/css/style.css" rel="stylesheet">
+    
+    <script src="/homepage/lib/jquery/jquery.min.js"></script>
+    <script src="/homepage/lib/jquery/jquery-migrate.min.js"></script>
+    <script src="/homepage/lib/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="/homepage/lib/easing/easing.min.js"></script>
+    <script src="/homepage/lib/wow/wow.min.js"></script>
+
+    <script src="/homepage/lib/waypoints/waypoints.min.js"></script>
+    <script src="/homepage/lib/counterup/counterup.min.js"></script>
+    <script src="/homepage/lib/superfish/hoverIntent.js"></script>
+    <script src="/homepage/lib/superfish/superfish.min.js"></script>
+
+    //- <!-- Template Main Javascript File -->
+    <script src="/homepage/js/main.js"></script>
+
+    //--Navigation Bar
+    <div id="navbar">
+    <nav id="nav-menu-container">
+            <ul class="nav-menu">
+            <li style="color:transparent;">Hidden1</li>
+            <li style="color:transparent;">Hidden1</li>
+            <li style="color:transparent;">Hidden1</li>
+            <li style="color:transparent;">Hidden1</li>
+            <li style="color:transparent;">Hidden1</li>
+            <li class="menu-active"><a href="/home">Home</a></li>
+            <li></li>
+            <li></li>
+            <li style="color:transparent;">Hidden2</li>
+            </ul>
+    </nav><!-- #nav-menu-container -->
+    </div>
+
+    //----- Modal
+    <div class="container" id="modalLogin">
+        <div class="modal fade" id="myModal"  aria-labelledby="modalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-sm" style="background: white;">
+            <div class="modal-content">
+                <div class="modal-header">
+                <img src="/homepage/img/logo2.png" alt="logo" title="Logo" style="margin-left:15%; margin-top: 5%; margin-bottom: 5%; height:15%;width:70%;" />
+                
+                <button type="button" class="close" data-dismiss="modal">x</button>
+            </div>
+            <div class="modal-body">
+                <form method="POST" action='home' name="login_form">
+                    <div class="form-group">
+                        <label for="modalemail"><span class="glyphicon glyphicon-user"></span> Username</label>
+                        <input type="text" class="form-control" id="modalusername" placeholder="pharmastar@gmail.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="modalpass"><span class="glyphicon glyphicon-eye-open"></span> Password</label>
+                        <input type="password" class="form-control" id="modalpass" placeholder="password" required>
+                    </div>
+                    <p><button type="submit" id="modalbutton" class="btn btn-primary float-right" position="center" style="background-color#21BA45;color:whitesmoke;border:none;">Sign in</button></p>
+                </form>
+            </br>
+            </br>
+            </div>
+        </div>
+    </div>
+    </div>
+        <div class="content">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h4 class="card-title">Signup</h4>
+                                </div>
+                                <div class="card-body">
+                                    <form method="POST" action='signup' name="signup_form">
+                                        <div class="row">                                            
+                                            <div class="col-md-6 pr-1">
+                                                <div class="form-group">
+                                                    <label>Username</label>
+                                                    <input type="text" name="signupusername" id="signupusername" class="form-control" placeholder="Username" value="" required>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6 pl-1">
+                                                <div class="form-group">
+                                                    <label for="exampleInputEmail1">Password</label>
+                                                    <input type="password" name="signuppassword" id="signuppassword" class="form-control" placeholder="Password" required>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-8 pr-1">
+                                                <div class="form-group">
+                                                    <label for="exampleInputEmail1">Email address</label>
+                                                    <input type="email" name="signupemail" id="signupemail" class="form-control" placeholder="" required>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-4 pr-1">
+                                                <div class="form-group">
+                                                    <label>First Name</label>
+                                                    <input type="text" name="signupfirstname" id="signupfirstname" class="form-control" placeholder="" value="" required>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4 pl-1">
+                                                <div class="form-group">
+                                                    <label>Middle Name</label>
+                                                    <input type="text" name="signupmiddlename" id="signupmiddlename" class="form-control" placeholder="" value="" required>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4 pl-1">
+                                                <div class="form-group">
+                                                    <label>Last Name</label>
+                                                    <input type="text" name="signuplastname" id="signuplastname" class="form-control" placeholder="" value="" required>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-4 pr-1">
+                                                <div class="form-group">
+                                                    <label>Contact No.</label>
+                                                    <input type="text" name="signupcontact" id="signupcontact" class="form-control" placeholder="" value="63XXXXXXXXXX" required>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <button type="submit" class="btn btn-info btn-fill pull-right">SUBMIT</button>
+                                        
+                                    </form>
+                                    <div class="clearfix"></div>
+                                </div>
+                            </div>
+                        </div>
+
+            
+
+
+
+        

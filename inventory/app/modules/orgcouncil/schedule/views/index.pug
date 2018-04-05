@@ -1,0 +1,83 @@
+extends ../../home/views/navbar.pug
+
+block content
+    link(rel="stylesheet" href="/stylesheets/orgcouncilschedule.css")
+    link(rel="stylesheet" href="/stylesheets/admin.css")
+    link(rel="stylesheet" href="/stylesheets/w3school.css")
+
+    <div id="background" class="blur"></div>
+    <div id="conta1" class = "container w3-animate-bottom">
+        <b><h3> Manage Schedule:</h3></b>
+        center
+            <a href="#" id="buttonAddClass" class="btn btn-outlined btn-sm" data-wow-delay="0.7s" position="left" data-toggle="modal" data-target="#myModal">Add a Schedule</a>
+    
+    <h2>&nbsp Lists of schedule:</h2>
+    <br>
+    <div class="container">
+    <table class="table table-hover table-sm" id="liststable">
+        <thead>
+            <tr>
+            <th>Course Code</th>
+            <th>Day</th>
+            <th>Time</th>
+            <th>Room</th>
+            <th>Professor</th>
+            </tr>
+        </thead>
+        <tbody>
+            each scheds in tbl_sched
+                <tr>
+                td=scheds.char_courseCode 
+                td=scheds.varchar_schedDay
+                td=scheds.varchar_schedTime
+                td=scheds.varchar_schedRoom
+                td=scheds.varchar_schedProf
+                </tr>
+    </table>
+    </div>
+    </div>
+
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 class="modal-title" id="lineModalLabel">Add Schedule:</h3>
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+                </div>
+                <div class="modal-body">
+                    
+        
+                    <form method="POST" action="/orgcouncil/schedule/addschedule">
+                        input(type="hidden" name="userid" value=`${user.int_userID}`)
+                    <div class="row">
+                    <div class="form-group col-7">
+                        <label for="addcoursecode">Course Code</label>
+                        input(type="text" class="form-control" id="addcoursecode" placeholder="Course Code(MATH3042)" name="sched_code")
+                    </div>
+                    <div class="form-group col-6">
+                        <label for="adddays">Days</label>
+                        input(type="text" class="form-control" id="adddays" placeholder="Days(ex:M-W,TH,F,S)" name="sched_days")
+                    </div>
+                    <div class="form-group col-6">
+                        <label for="addtime">Time</label>
+                        input(type="text" class="form-control" id="addtime" placeholder="Time(ex:12:00pm-2:00pm)" name="sched_time")
+                    </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="addroom">Room</label>
+                        input(type="text" class="form-control" id="addroom" placeholder="Room(ex:E412,S510)" name="sched_room")
+                    </div>
+                    <div class="form-group">
+                        <label for="addprof">Professor</label>
+                        input(type="text" class="form-control" id="addprof" placeholder="Professor(ex:Prof.Snape)" name="sched_prof")
+                    </div>
+                    <hr>
+                    <button type="submit" class="btn btn-default float-right" id="buttoneditprofile">Submit</button>
+                    
+                    </form>
+
+                </div>
+                
+            </div>
+        </div>
+        </div>

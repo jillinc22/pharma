@@ -1,0 +1,233 @@
+extends ../../home/views/index.pug
+
+block content
+   
+    <div class="content-wrapper">
+        <div class="container-fluid">
+        <!-- Example DataTables Card-->
+        
+        <div class="card mb-3">
+            <div class="card-header">
+            <i class="fa fa-list-ul"></i> List of Medicines</div>
+            <button type="button" class="btn btn-secondary btn-lg btn-block" href="#portfolio" data-toggle="modal" data-target="#addMedicine">Add Medicine</button>
+            <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                    <th>ID</th>
+                    <th>Code</th>
+                    <th>Name</th>
+                    <th>Generic Name</th>
+                    <th>Description</th>
+                    <th>Form</th>
+                    <th>Expiry</th>
+                    <th>Price Per Item</th>
+                    <th>Actions</th>
+                    </tr>
+                </thead>
+                <tfoot>
+                    <tr>
+                    <th>ID</th>
+                    <th>Code</th>
+                    <th>Name</th>
+                    <th>Generic Name</th>
+                    <th>Description</th>
+                    <th>Form</th>
+                    <th>Expiry</th>
+                    <th>Price Per Item</th>
+                    <th>Actions</th>
+                    </tr>
+                </tfoot>
+                <tbody>
+                each item in tbl_itemStock
+                    <tr>
+                    <td>
+                        value=item.int_itemStockID
+                    </td>
+                    <td>
+                        value=item.varchar_medCode
+                    </td>
+                    <td>
+                        value=item.varchar_itemName
+                    </td>
+                    <td>
+                        value=item.varchar_medGenName
+                    </td>
+                    <td>
+                        value=item.varchar_itemDescription
+                    </td>
+                    <td>
+                        value=item.varchar_medForm
+                    </td>
+                    <td>
+                        value=item.date_medicineExpiry
+                    </td>
+                    <td>    
+                        value=item.decimal_itemPrice + ".00"
+                    </td>
+                    <td>
+                        a(href=`/admin/colleges/${item.int_itemStockID}/edit` id="updatemed"): span.fa.fa-edit Edit
+                    </td>
+                    </tr>
+                </tbody>
+                </table>
+            </div>
+            </div>
+        </div>
+        </div>
+        
+        <!-- /.container-fluid-->
+        <!-- /.content-wrapper-->
+                    
+        <footer class="sticky-footer">
+        <div class="container">
+            <div class="text-center">
+            <small>Copyright © Pharmastar 2018</small>
+            </div>
+        </div>
+        </footer>
+        <!-- Scroll to Top Button-->
+        <a class="scroll-to-top rounded" href="#page-top">
+        <i class="fa fa-angle-up"></i>
+        </a>
+        <!-- Bootstrap core JavaScript-->
+        <script src="/adminui/vendor/jquery/jquery.min.js"></script>
+        <script src="/adminui/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <!-- Core plugin JavaScript-->
+        <script src="/adminui/vendor/jquery-easing/jquery.easing.min.js"></script>
+        <!-- Page level plugin JavaScript-->
+        <script src="/adminui/vendor/chart.js/Chart.min.js"></script>
+        <script src="/adminui/vendor/datatables/jquery.dataTables.js"></script>
+        <script src="/adminui/vendor/datatables/dataTables.bootstrap4.js"></script>
+        <!-- Custom scripts for all pages-->
+        <script src="/adminui/js/sb-admin.min.js"></script>
+        <!-- Custom scripts for this page-->
+        <script src="/adminui/js/sb-admin-datatables.min.js"></script>
+        <script src="/adminui/js/sb-admin-charts.min.js"></script>
+    </div>
+
+
+    <div class="modal fade" id="myMedicine" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLongTitle">Edit Medicine Details</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>
+            </div>
+            <div class="modal-body">
+            <form method="POST" action='/admin/colleges' name="login_form">
+                
+                    <div class="form-group">
+                        <label for="medcode"><span class="glyphicon glyphicon-user"></span>Code</label>
+                        <input type="text" class="form-control" name="medcode" id="medcode" placeholder="" required>
+                    </div>
+                    <div class="row">
+                    <div class="form-group col-md-6">
+                        <label for="medname"><span class="glyphicon glyphicon-eye-open"></span>Name</label>
+                        <input type="text" class="form-control" name="medname" id="medname" placeholder="" required>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="medgen"><span class="glyphicon glyphicon-eye-open"></span>Generic Name</label>
+                        <input type="text" class="form-control" name="medgen" id="medgen" placeholder="" required>
+                    </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="meddescription"><span class="glyphicon glyphicon-eye-open"></span>Description</label>
+                        <input type="text" class="form-control" name="meddescription" id="meddescription" placeholder="" required>
+                    </div>
+                    <div class="row">
+                    <div class="form-group col-md-6">
+                        <label for="medform"><span class="glyphicon glyphicon-eye-open"></span>Form</label>
+                        <input type="text" class="form-control" name="medform" id="medform" placeholder="" required>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="medexpiry"><span class="glyphicon glyphicon-eye-open"></span>Expiry</label>
+                        <input type="date" class="form-control" name="medexpiry" id="medexpiry" placeholder="" required>
+                    </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="medprice"><span class="glyphicon glyphicon-eye-open"></span>Price</label>
+                        <input type="number" class="form-control" name="medprice" id="medprice" placeholder="" required>
+                    </div>
+                    <button type="submit" id="modalbutton" class="btn btn-primary float-right" position="center" style="background-color#21BA45;color:whitesmoke;border:none;">Submit</button>
+        
+            </form>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+    </div>
+              
+            
+                
+    </div>
+    </div>
+    </div>                
+
+    <div class="modal fade" id="addMedicine" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLongTitle">Add Medicine</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+            <form method="POST" action='colleges' name="login_form">
+                    <input type=>
+                    <div class="form-group">
+                        <label for="medcode"><span class="glyphicon glyphicon-user"></span>Code</label>
+                        <input type="text" class="form-control" name="medcode" id="medcode" placeholder="" required>
+                    </div>
+                    <div class="row">
+                    <div class="form-group col-md-6">
+                        <label for="medname"><span class="glyphicon glyphicon-eye-open"></span>Name</label>
+                        <input type="text" class="form-control" name="medname" id="medname" placeholder="" required>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="medgen"><span class="glyphicon glyphicon-eye-open"></span>Generic Name</label>
+                        <input type="text" class="form-control" name="medgen" id="medgen" placeholder="" required>
+                    </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="meddescription"><span class="glyphicon glyphicon-eye-open"></span>Description</label>
+                        <input type="text" class="form-control" name="meddescription" id="meddescription" placeholder="" required>
+                    </div>
+                    <div class="row">
+                    <div class="form-group col-md-6">
+                        <label for="medform"><span class="glyphicon glyphicon-eye-open"></span>Form</label>
+                        <input type="text" class="form-control" name="medform" id="medform" placeholder="" required>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="medexpiry"><span class="glyphicon glyphicon-eye-open"></span>Expiry</label>
+                        <input type="date" class="form-control" name="medexpiry" id="medexpiry" placeholder="" required>
+                    </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="medprice"><span class="glyphicon glyphicon-eye-open"></span>Price</label>
+                        <input type="number" class="form-control" name="medprice" id="medprice" placeholder="" required>
+                    </div>
+                    <button type="submit" id="modalbutton" class="btn btn-primary float-right" position="center" style="background-color#21BA45;color:whitesmoke;border:none;">Submit</button>
+        
+            </form>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+    </div>
+    </body>
+
+            
+                        
+
+                        
+
+                        

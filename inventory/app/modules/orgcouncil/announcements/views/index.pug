@@ -1,0 +1,88 @@
+extends ../../home/views/navbar.pug
+
+
+block content
+    link(rel="stylesheet" href="/stylesheets/organnouncements.css")
+    link(rel="stylesheet" href="/stylesheets/w3school.css")
+    #background.blur
+    #conta1.container.w3-animate-bottom
+        form.form-horizontal(method='POST' action="/orgcouncil/announcements" onSubmit="if(!confirm('Are you sure? Please confirm before you proceed.')){return false;}")
+            input(type="hidden" name="userid" value=`${user.int_userID}`)
+            .row
+                .col-md-9
+                    if alert == 0
+                        .alert.alert-danger(role='alert') <strong> Ooops! </strong> The TITLE you've entered is already used. 
+                    if alert == 1
+                        .alert.alert-success(role='alert')
+                            strong Yaay!
+                            |  You have posted your announcement successfully.
+            br
+            //input(type="hidden" name="userid" value=`${announcements.int_userID}`)
+            .row
+                .col-md-8
+                .col-md-4
+                    <a>Entry Date:<input type="date" id="theDate" name="date_announcementDate"></a>
+            .row
+                .col-md-4
+                   
+                .col-md-4
+                    h5 <strong> Announcement Title: </strong>
+                    textarea.form-control(rows='2' style="float:left;" name="title" required oninvalid="this.setCustomValidity('Set a TITLE for you announcement!')" oninput="setCustomValidity('')")
+            br
+            .row
+                .col-md-2
+                    
+                .col-md-8
+                    h5 <strong> Post Content </strong>
+                    textarea.form-control(rows='5' name="post" required oninvalid="this.setCustomValidity('Please say your announcement!')" oninput="setCustomValidity('')")
+
+            .row    
+                .col-md-1      
+                .col-md-4
+                .col-md-5
+                    br
+                    center
+                    input.btn.btn-default(type='submit', value='Submit')
+        br
+        br
+    
+    script.
+        var date = new Date();
+
+        var day = date.getDate();
+        var month = date.getMonth() + 1;
+        var year = date.getFullYear();
+
+        if (month < 10) month = "0" + month;
+        if (day < 10) day = "0" + day;
+
+        var today = year + "-" + month + "-" + day;       
+        document.getElementById("theDate").value = today;
+    br
+    br
+    br
+    br
+    #cent
+        center
+        h2 
+        font(face='Lucida Calligraphy', size='6')
+            strong 👥  Announcements  👥
+        br
+        .container
+        table#liststable2.table.table-hover.table-sm
+            thead
+                tr1
+                    th Announcement ID
+                    th Announcement Date
+                    th Title
+                    th Content
+                    th User ID
+            tbody
+                each announcements in tbl_announcement
+                    tr
+                        td=announcements.int_announcementId
+                        td=announcements.date_announcementDate
+                        td=announcements.varchar_announcementTitle
+                        td=announcements.varchar_announcementText
+                        td=announcements.int_userID
+            
