@@ -20,7 +20,7 @@ module.exports = app => {
             console.log(`
                 Your .env file should have a MAIN variable like this:
                 MAIN=home/index
-                ...this maps the application's index route ('http://localhost:3009')
+                ...this maps the application's index route ('http://localhost:3000')
                 to home module's routes.js' index method.`);
             
         }
