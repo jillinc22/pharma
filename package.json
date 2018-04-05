@@ -21,9 +21,9 @@
   "author": "Abigale Del Rosario",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/jillinc22/Irregular-Please/issues"
+    "url": "https://github.com/jillinc22/pharma/issues"
   },
-  "homepage": "https://github.com/jillinc22/Irregular-Please#readme",
+  "homepage": "https://github.com/jillinc22/pharma#readme",
   "dependencies": {
     "body-parser": "^1.17.2",
     "dotenv": "^4.0.0",
