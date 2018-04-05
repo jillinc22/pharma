@@ -1,6 +1,6 @@
 {
   "name": "Start on Heroku: Node.js",
-  "description": "Pharmastar 1 by BSIT3-3",
+  "description": "Pharma12 by BSIT3-3",
   "repository": "https://github.com/heroku/node-js-getting-started",
   "logo": "https://cdn.rawgit.com/heroku/node-js-getting-started/master/public/node.svg",
   "keywords": ["node", "express", "heroku"],
